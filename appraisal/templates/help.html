@@ -1,0 +1,49 @@
+{% extends "base.html" %}{% load staticfiles %}
+{% block helpmessage %}
+	Rate Employee based on the following informations
+{% endblock %}
+
+{% block content %}
+
+		<div class="container-fluid row tabs" style="margin-bottom: 30px;">
+		   <div  class="col-sm-2"id="tabs" style="padding:0px;margin-top: 20px;background-color:#27AAE1;">
+             <ul class="nav nav-pills nav-stacked">
+                <li  ><a href="../appraiserhome/{{name_extapp}}" style="color:white">Tasks</a></li>
+                <li><a href="../app_role/{{name_extapp}}" style="color:white" >Attributes</a></li>
+                <li class="active"><a href="../help/{{name_extapp}}" style="color:white">Help</a></li>
+                <li><a href="../logout" style="color:white">Logout</a></li>
+            </ul>
+            
+        </div>
+        <div class="col-sm-10 appraisal-tasks">
+		 <table class="tasks" style=" margin-bottom: 10px;margin-top: 20px;width:100%;border: 1px solid black;">
+			  <tr class="" id="task-table-header" style="height:30px;">
+				    <th class="col-sm-2 text-center title " style="border: 1px solid #999;">Rating</th>
+				    <th class="col-sm-10 text-center title " style="border: 1px solid #999;">Information</th>
+				    
+			  </tr>
+			  <tr  class="items"  style="height:30px;background-color: #FFF6CC;">
+			  	    <td class="col-sm-2 text-center title " style="border: 1px solid #999;">7</td>
+				    <td class="col-sm-10 text-center title " style="border: 1px solid #999;">Given very rarely for tasks that were done in an outstanding manner.  This kind of an effort is very difficult to replicate and shows a lot of innovation.  Examples could be to write a framework to handle some requirement and such a framework becomes useful for the whole project.</td>
+			  </tr>
+			  <tr  class="items"  style="height:30px;background-color: #FFF6CC;">
+			  	    <td class="col-sm-2 text-center title " style="border: 1px solid #999;">5</td>
+				    <td class="col-sm-10 text-center title " style="border: 1px solid #999;">Given for tasks which were done really well (either in a very short period of time and with a lot of attention to detail).  Basically Excellent.</td>
+			  </tr>
+			  <tr  class="items"  style="height:30px;background-color: #FFF6CC;">
+			  	    <td class="col-sm-2 text-center title " style="border: 1px solid #999;">4</td>
+				    <td class="col-sm-10 text-center title " style="border: 1px solid #999;">The normal grade.  The task was done well as per expectation.</td>
+			  </tr>
+			 <tr  class="items"  style="height:30px;background-color: #FFF6CC;">
+			  	    <td class="col-sm-2 text-center title " style="border: 1px solid #999;">3</td>
+				    <td class="col-sm-10 text-center title " style="border: 1px solid #999;">The task could have been done better.  Requires improvement.</td>
+			  </tr>
+			 <tr  class="items"  style="height:30px;background-color: #FFF6CC;">
+			  	    <td class="col-sm-2 text-center title " style="border: 1px solid #999;">1</td>
+				    <td class="col-sm-10 text-center title " style="border: 1px solid #999;">Task was done really bad and totally unacceptable.  This grade should be used really rarely.</td>
+			  </tr>
+		</table> 
+		</div>
+
+
+{% endblock %}

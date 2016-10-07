@@ -1,0 +1,50 @@
+{% extends "base.html" %}{% load staticfiles %}
+{% block title %}Create Appraiser{% endblock %}
+{% block header%}Create Appraiser's login credential:{% endblock %}
+{% block message%}
+	{% if msg%}
+		{{msg}}
+	{% endif %}
+{% endblock %}
+		
+{% block content %}
+    <div class="col-sm-12" style="background-color:#F5F5F5;height: 100%;">
+		    	<form action="" method="post">
+				{% csrf_token %}
+				<select class="appraiser-names" name="appraisers" style="margin:10px 0px 30px 0px;"  required>
+	  				<option selected disabled value=""> Select the appraiser </option>
+	  				{% for a in appraiser %}
+	  					<option id='{{ a.id }}' value="{{ a.id }}" >{{ a.first_name }}&nbsp{{ a.last_name}}</option>
+	  				{% endfor %}
+				</select>
+				<div class="form-group row">
+				    <label for="inputusername" class="col-sm-2 form-control-label" required>Username </label>
+				    <div class="col-sm-4">
+				      <input type="text" class="form-control" id="inputusername" placeholder="Username" name="username" required>
+				    </div>
+				  </div>
+				 <div class="form-group row">
+				    <label for="inputEmail" class="col-sm-2 form-control-label">Email</label>
+				    <div class="col-sm-4">
+				      <input type="email" required class="form-control" id="inputEmail" placeholder="Email" name="email">
+				    </div>
+				  </div>
+				  <div class="form-group row">
+				    <label for="inputPassword" class="col-sm-2 form-control-label">Password</label>
+				    <div class="col-sm-4">
+				      <input type="password" required class="form-control" id="inputPassword" placeholder="Password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters">
+				    </div>
+				  </div>
+				  <div class="form-group row">
+				    <div class="col-sm-offset-2 col-sm-10">
+				      <button type="submit" class="btn btn-secondary register" style="background-color:grey">Register</button>
+				    </div>
+				  </div>
+				  <div class="form-group row" style="float:right">
+				    <div class="col-sm-offset-2 col-sm-10">
+				      <a style="background-color:grey" href="../logout_admin">Logout</a>
+				    </div>
+				  </div>
+        	</form>
+        </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% load staticfiles %}
+{% block title %} Ratings submitted Successful {% endblock %}
+{% block header %}
+Ratings submitted Successfully.
+{% endblock %}
+{% block content %}
+	{% if name %}
+	For rate another employee ,
+    <a href="../appraiserhome/{{ name }}">Click Here</a> 
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}{% load staticfiles %}
+{% block title %}Submit Your rating{% endblock %}
+{% block header%} <div class="text-center">Welcome {% if name_extapp %}
+								{{name_extapp}}!
+							{% endif %}
+			</div>
+	{% endblock %}
+	
+	{% block errormessage%}
+   		{% if msg %}
+   		{{ msg }}
+   		{% endif %}
+    {% endblock %}
+	
+{% block content %}
+	<div class='container-fluid' >
+    <hr style="display: block;margin-top: 0.5em;margin-bottom: 0.0em;margin-left: auto;margin-right: auto;border-style: inset;
+    border-width: 1px;border-color:#27AAE1;">
+
+    <div class="container-fluid row tabs" style="margin-bottom: 30px;">
+        <div  class="col-sm-2"id="tabs" style="padding:0px;background-color:#27AAE1;">
+             <ul class="nav nav-pills nav-stacked">
+                <li class="active" ><a href="../appraiserhome/{{name_extapp}}" style="color:white">Tasks</a></li>
+                <li><a href="../app_role/{{name_extapp}}" style="color:white" >Attributes</a></li>
+                <li><a href="../help/{{name_extapp}}" style="color:white">Help</a></li>
+                <li><a href="../logout" style="color:white">Logout</a></li>
+            </ul>
+            
+        </div>
+        <div class="col-sm-10 appraisal-tasks">
+        	<form action="" class="extra-appraisal" method="post">
+				{% csrf_token %}
+		    <div class="col-sm-10 text-center"  >
+		        <div class="employee-names">
+		        		<select class="employee" name="employees">
+			  				<option selected disabled class="col-sm-3"> Select Employee</option>
+			  					{% for i in emp_dict %}
+				  			<option id='{{ i.id }}' value="{{ i.id }}" >{{ i.name }}</option>
+				  				{% endfor %}
+						</select>
+		        	</div>
+		        
+		    </div>
+        	<table class="tasks" style=" margin-bottom: 10px;margin-top: 20px;width:100%;border: 1px solid black;">
+		    	<tbody class='sortable'>
+		    		
+				</tbody>
+				 
+		    </table>
+		     <input class="form-submit" style="display:none" type="button" value="Submit">
+		   </form>
+        </div>
+    </div>
+  </div>
+ <script src="{% static "js/extappraisal.js" %}"></script>     
+{% endblock %}
+

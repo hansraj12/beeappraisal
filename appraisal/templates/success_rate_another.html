@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% load staticfiles %}
+{% block title %} Ratings submitted Successful {% endblock %}
+{% block header %}
+ Attribute Ratings submitted Successfully.
+{% endblock %}
+{% block content %}
+	{% if name %}
+	For rate another employee's attribute ,
+    <a href="../app_role/{{ name }}">Click Here</a> 
+    {% endif %}
+{% endblock %}
